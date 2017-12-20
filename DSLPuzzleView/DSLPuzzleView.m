@@ -128,6 +128,7 @@ typedef NS_ENUM(NSUInteger, DSLPuzzleMoveDirection) {
             CGRect rect = CGRectMake(x * size, y * size, size, size);
             CGImageRef cgImg = CGImageCreateWithImageInRect(image.CGImage, rect);
             UIImage *img = [UIImage imageWithCGImage:cgImg];
+            CGImageRelease(cgImg);
             UIImageView *iv = [[UIImageView alloc] initWithImage:img];
             iv.contentMode = UIViewContentModeScaleToFill;
             iv.layer.borderWidth = _puzzleBorderWidth;
