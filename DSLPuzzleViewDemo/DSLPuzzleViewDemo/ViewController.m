@@ -24,12 +24,18 @@
     [_puzzle startUp];
     [self.view addSubview:_puzzle];
     
-    _puzzle.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 40, [UIScreen mainScreen].bounds.size.width - 40);
-    _puzzle.center = self.view.center;
-    
     [_puzzle setCompletionBlock:^{
         NSLog(@"拼图完成");
     }];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    CGFloat screenShorter = CGRectGetWidth([UIScreen mainScreen].bounds) < CGRectGetHeight([UIScreen mainScreen].bounds) ? CGRectGetWidth([UIScreen mainScreen].bounds) : CGRectGetHeight([UIScreen mainScreen].bounds);
+    
+    _puzzle.frame = CGRectMake(0, 0, screenShorter - 65, screenShorter - 65);
+    _puzzle.center = self.view.center;
 }
 
 - (IBAction)upset:(id)sender {
