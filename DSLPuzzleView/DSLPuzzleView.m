@@ -9,7 +9,7 @@
 #import "DSLPuzzleView.h"
 #import <objc/runtime.h>
 
-#define UPSET_NUM (200 + arc4random_uniform(200))
+#define RESET_NUM (200 + arc4random_uniform(200))
 #define COMPLETION_POINT CGPointMake(-1, -1)
 
 #define UIColorFromRGB(rgbValue) [UIColor \
@@ -93,14 +93,14 @@ typedef NS_ENUM(NSUInteger, DSLPuzzleMoveDirection) {
 
 - (void)startUp {
     [self divideWithImage:_image];
-    [self upset];
+    [self reset];
 }
 
-- (void)upset {
+- (void)reset {
     if (CGPointEqualToPoint(_blankLoc, COMPLETION_POINT)) {
         [self startUp];
     }
-    for (NSInteger i = 0; i < UPSET_NUM; i++) {
+    for (NSInteger i = 0; i < RESET_NUM; i++) {
         NSMutableArray *ivs = [self puzzlesCanMove];
         NSUInteger idx = arc4random_uniform((uint32_t)ivs.count);
         [self moveLoc:ivs[idx]];

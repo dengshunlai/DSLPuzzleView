@@ -66,7 +66,7 @@ typedef NS_ENUM(NSUInteger, DSLPuzzleGap) {
 /**
  重新打乱拼图
  */
-- (void)upset;
+- (void)reset;
 
 @end
 

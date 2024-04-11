@@ -38,8 +38,8 @@
     _puzzle.center = self.view.center;
 }
 
-- (IBAction)upset:(id)sender {
-    [_puzzle upset];
+- (IBAction)reset:(id)sender {
+    [_puzzle reset];
 }
 
 - (IBAction)n3:(id)sender {
